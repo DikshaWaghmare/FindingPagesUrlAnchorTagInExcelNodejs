@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Extract Anchor Tags</title>
+  <style>
+    /* Style for message */
+    .message {
+      display: none;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/" method="POST">
+    <label for="urls">Enter URLs (Separate by new line):</label><br>
+    <textarea id="urls" name="urls" rows="5" cols="40"></textarea><br><br>
+    <input type="submit" value="Extract Anchor Tags">
+  </form>
+
+  <!-- Message displayed after successful file download -->
+  <div id="downloadMessage" class="message">
+    File Downloaded Successfully!
+  </div>
+
+  <script>
+    // Display message after form submission
+    const messageDiv = document.getElementById('downloadMessage');
+
+    // Check if the URL has the parameter 'downloaded'
+    const urlParams = new URLSearchParams(window.location.search);
+    const downloaded = urlParams.get('downloaded');
+
+    if (downloaded === 'true') {
+      messageDiv.style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>
